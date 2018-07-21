@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //startActivity(new Intent(MainActivity.this,SecondActivity.class));
                 validate(Name.getText().toString(), Password.getText().toString());
             }
         });

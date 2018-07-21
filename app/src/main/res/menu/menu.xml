@@ -2,25 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+
     <item
-        android:id="@+id/logoutMenu"
-        android:orderInCategory="100"
+        android:id="@+id/search_track"
+        android:title="SEARCH"
         app:showAsAction="always"
-        android:title="Logout">
-    </item>
-
+        android:icon="@drawable/search"
+        app:actionViewClass="android.widget.SearchView" />
     <item
-        android:id="@+id/profileMenu"
-        android:orderInCategory="200"
+        android:id="@+id/search_mood"
+        android:title="SEARCH BY MOOD"
         app:showAsAction="never"
-        android:title="Profile">
-    </item>
-
-    <item
-        android:id="@+id/refreshMenu"
-        android:orderInCategory="300"
-        app:showAsAction="never"
-        android:title="Refresh">
-    </item>
+        app:actionViewClass="android.widget.SearchView" />
 
 </menu>
