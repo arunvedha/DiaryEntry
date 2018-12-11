@@ -68,27 +68,10 @@ public class SearchActivity extends AppCompatActivity {
 
                         titleFb = entriesList.get(i).getTitle();
                         if (titleFb.toLowerCase().trim().contains(query.toLowerCase().trim())){
-//                            ArrayList<String> myList = new ArrayList<String>();
-//                            intent.putExtra("mylist", myList);
-//                            In the other Activity:
-//
-//                            ArrayList<String> myList = (ArrayList<String>) getIntent().getSerializableExtra("mylist");
+
                             integers.add(i);
-//                            int mood = entriesList.get(i).getMood();
-//                        if (mood == 0) {
-//                            moodString = "good";
-//                        }
-//
-//                        if (mood == 1) {
-//                            moodString = "normal";
-//                        }
-//
-//                        if (mood == 2) {
-//                            moodString = "bad";
-//                        }
 
                         Log.e("SecondActivity", "sadasdsdasdad" + titleFb);
-//                        entries.add(new Entry(titleFb, moodString, entriesList.get(i).getEntry()));
                         }}
                     Log.e("Integer", "seeeeeeeeee" + integers.size());
 
@@ -110,7 +93,7 @@ public class SearchActivity extends AppCompatActivity {
                                 if (mood == 2) {
                                     moodString = "bad";
                                 }
-                                entries.add(new Entry(entriesList.get(integers.get(j)).getTitle(), moodString, entriesList.get(integers.get(j)).getEntry()));
+                                entries.add(new Entry(entriesList.get(integers.get(j)).getTitle(), moodString, entriesList.get(integers.get(j)).getEntry(),entriesList.get(integers.get(j)).getDateCreated()));
                             }
                             Log.e("Entries", "sizeeeeeee" + entries.size());
                             entryAdapter = new EntryAdapter(SearchActivity.this, entries);
@@ -144,7 +127,6 @@ public class SearchActivity extends AppCompatActivity {
 
 
             }
-            //
 
             @Override
             public void onCancelled(DatabaseError databaseError) {

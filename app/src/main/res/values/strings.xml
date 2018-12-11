@@ -3,4 +3,6 @@
     <string name="mood_good">good</string>
     <string name="mood_bad">bad</string>
     <string name="mood_normal">normal</string>
+    <string name="facebook_app_id">1389473471206655</string>
+    <string name="fb_login_protocol_scheme">fb1389473471206655</string>
 </resources>

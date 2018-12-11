@@ -3,12 +3,14 @@ package com.example.android.diaryentry;
 public class Entry {
     private String titleEntry;
     private String mood;
-    String entry;
+    private String entry;
+    private String date;
 
-    public Entry(String titleEntry,String mood,String entry){
+    public Entry(String titleEntry,String mood,String entry,String date){
         this.titleEntry=titleEntry;
         this.mood = mood;
         this.entry = entry;
+        this.date = date;
     }
 
     public String getTitleEntry(){
@@ -22,4 +24,6 @@ public class Entry {
     public String getEntry() {
         return entry;
     }
+
+    public String getDate() { return date; }
 }

@@ -185,6 +185,6 @@ public class RegistrationActivity extends AppCompatActivity{
 //            }
 //        });
         UserProfile userProfile = new UserProfile(age, email, name);
-        myRef.setValue(userProfile);
+        myRef.setValue("Hello");
     }
 }

@@ -122,7 +122,7 @@ public class SecondActivity extends AppCompatActivity {
                     }
 
                     Log.e("SecondActivity", "sadasdsdasdad" + titleFb);
-                    entries.add(new Entry(titleFb, moodString, entriesList.get(i).getEntry()));
+                    entries.add(new Entry(titleFb, moodString, entriesList.get(i).getEntry(),entriesList.get(i).getDateCreated()));
 
                     if (entries.size() == 0) {
                         Log.e("SecondActivity", "if else loop" + entries.size());
@@ -240,6 +240,20 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
+            case R.id.logout_second:
+                Logout();
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

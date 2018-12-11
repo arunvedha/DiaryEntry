@@ -10,9 +10,10 @@
         app:showAsAction="always"
         android:icon="@drawable/search"
         app:actionViewClass="android.widget.SearchView" />
+
     <item
-        android:id="@+id/search_mood"
-        android:title="SEARCH BY MOOD"
+        android:id="@+id/logout_second"
+        android:title="LOGOUT"
         app:showAsAction="never"
         app:actionViewClass="android.widget.SearchView" />
 

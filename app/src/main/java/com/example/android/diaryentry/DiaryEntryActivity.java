@@ -29,6 +29,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -72,10 +74,7 @@ public class DiaryEntryActivity extends AppCompatActivity {
             databaseReference.child("dailyEntry").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-//                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-//                profileName.setText("Name: " + userProfile.getUserName());
-//                profileAge.setText("Age: " + userProfile.getUserAge());
-//                profileEmail.setText("Email: " + userProfile.getUserEmail());
+
 
                     if(dataSnapshot.exists() && FLAG==1) {
                         List<DailyEntry> entriesList=new ArrayList<>();
@@ -156,23 +155,21 @@ public class DiaryEntryActivity extends AppCompatActivity {
 
 
     private void sendUserData(){
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+        java.util.Date d = new java.util.Date();
+        String dayOfTheWeek = sdf.format(d);
+        String currentDateString = DateFormat.getDateInstance().format(new java.util.Date());
+        String currentTimeString = DateFormat.getTimeInstance().format(new java.util.Date());
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getCurrentUser().getUid());
-//        UserProfile userProfile = new UserProfile(age, email, name);
-//        myRef.setValue(userProfile);
-        DailyEntry dailyEntry = new DailyEntry(titleText.getText().toString(),diaryEntry.getText().toString(),mood);
+        DailyEntry dailyEntry = new DailyEntry(titleText.getText().toString(),diaryEntry.getText().toString(),mood,currentDateString +"\n" + currentTimeString);
+        Log.e("diaryEntry","yesterday was his birthday " + currentDateString);
         dailyEntryList.add(dailyEntry);
-        DailyEntryObject dailyEntryObject = new DailyEntryObject(dailyEntryList);
         Log.e("sendUserData","yesterday was his birthday " + sizeList);
         myRef.child("dailyEntry").child(""+sizeList).setValue(dailyEntryList.get(0));
     }
 
-//    private void sendNewUserData(){
-//        dailyEntry_ = new DailyEntry(titleText.getText().toString(),diaryEntry.getText().toString(),mood);
-//        dailyEntryList.add(dailyEntry_);
-//        dailyEntryObject_ = new DailyEntryObject(dailyEntryList);
-//        myRef_.setValue(dailyEntryObject_);
-//    }
+
 
 
     @Override

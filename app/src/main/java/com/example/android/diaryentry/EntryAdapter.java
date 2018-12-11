@@ -7,6 +7,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class EntryAdapter extends ArrayAdapter<Entry> {
 
@@ -40,6 +44,20 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
 
         TextView mood = list.findViewById(R.id.mood_text);
         mood.setText(currentEntry.getMood());
+
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+        Date d = new Date();
+        String dayOfTheWeek = sdf.format(d);
+        String currentDateString = DateFormat.getDateInstance().format(new Date());
+        String currentTimeString = DateFormat.getTimeInstance().format(new Date());
+
+        Log.e("date","chumma than "+ currentDateString );
+
+        TextView dayTextView = list.findViewById(R.id.date);
+        TextView dateTextView = list.findViewById(R.id.time);
+
+        dayTextView.setText(dayOfTheWeek);
+        dateTextView.setText(currentDateString);
 
         GradientDrawable moodCircle = (GradientDrawable) mood.getBackground();
         int result;
